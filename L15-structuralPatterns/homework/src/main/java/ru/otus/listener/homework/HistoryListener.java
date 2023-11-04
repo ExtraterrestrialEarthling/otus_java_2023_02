@@ -2,17 +2,36 @@ package ru.otus.listener.homework;
 
 import ru.otus.listener.Listener;
 import ru.otus.model.Message;
-import java.util.Optional;
+import ru.otus.model.ObjectForMessage;
+
+import java.util.*;
 
 public class HistoryListener implements Listener, HistoryReader {
+    private final Map<Long, Message> messageHistory = new HashMap<>();
 
     @Override
     public void onUpdated(Message msg) {
-        throw new UnsupportedOperationException();
+        var dataField = new ObjectForMessage();
+        var data = new ArrayList<>(msg.getField13().getData());
+        dataField.setData(data);
+        Message msgCopy = new Message.Builder(msg.getId()).field1(msg.getField1())
+                .field2(msg.getField2())
+                .field3(msg.getField3())
+                .field4(msg.getField4())
+                .field5(msg.getField5())
+                .field6(msg.getField6())
+                .field7(msg.getField7())
+                .field8(msg.getField8())
+                .field9(msg.getField9())
+                .field10(msg.getField10())
+                .field11(msg.getField11())
+                .field12(msg.getField12())
+                .field13(dataField).build();
+        messageHistory.put(msgCopy.getId(), msgCopy);
     }
 
     @Override
     public Optional<Message> findMessageById(long id) {
-        throw new UnsupportedOperationException();
+        return Optional.of(messageHistory.get(id));
     }
 }
