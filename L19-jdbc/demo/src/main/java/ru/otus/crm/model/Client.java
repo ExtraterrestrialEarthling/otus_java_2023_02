@@ -1,7 +1,10 @@
 package ru.otus.crm.model;
 
 public class Client {
+    @ID
+    @SQLTemplateOrder(position = 1)
     private Long id;
+    @SQLTemplateOrder(position = 2)
     private String name;
 
     public Client() {
