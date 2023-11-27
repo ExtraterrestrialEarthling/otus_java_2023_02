@@ -1,8 +1,12 @@
 package ru.otus.crm.model;
 
 public class Manager {
+    @ID
+    @SQLTemplateOrder(position = 1)
     private Long no;
+    @SQLTemplateOrder(position = 2)
     private String label;
+    @SQLTemplateOrder(position = 3)
     private String param1;
 
     public Manager() {
@@ -14,6 +18,11 @@ public class Manager {
 
     public Manager(Long no, String label, String param1) {
         this.no = no;
+        this.label = label;
+        this.param1 = param1;
+    }
+
+    public Manager(String label, String param1){
         this.label = label;
         this.param1 = param1;
     }
