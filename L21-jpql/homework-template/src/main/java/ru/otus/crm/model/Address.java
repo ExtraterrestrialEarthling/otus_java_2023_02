@@ -9,7 +9,6 @@ import lombok.*;
 @Setter
 @Table(name = "addresses")
 @AllArgsConstructor
-@ToString
 public class Address {
 
     @Id
@@ -27,7 +26,10 @@ public class Address {
         this.street = street;
     }
 
-//    @OneToOne
-//    @JoinColumn(name = "client_id")
-//    private Client client;
+    @Override
+    public String toString() {
+        return "Address{" +
+                "street='" + street + '\'' +
+                '}';
+    }
 }

@@ -9,11 +9,9 @@ import lombok.*;
 @Getter
 @Setter
 @AllArgsConstructor
-@ToString
 public class Phone {
 
     @Id
-   // @GeneratedValue(strategy = GenerationType.IDENTITY)
     @SequenceGenerator(name = "phone_gen", sequenceName = "phone_seq",
             initialValue = 1, allocationSize = 1)
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "phone_gen")
@@ -36,4 +34,8 @@ public class Phone {
         this.phoneNumber = phoneNumber;
     }
 
+    @Override
+    public String toString() {
+        return phoneNumber;
+    }
 }
