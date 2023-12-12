@@ -3,7 +3,8 @@ dependencies {
     annotationProcessor ("org.projectlombok:lombok")
 
     implementation("ch.qos.logback:logback-classic")
-    implementation("org.hibernate.orm:hibernate-core")
+    implementation("org.hibernate:hibernate-core:6.3.1.Final")
+
     implementation("org.flywaydb:flyway-core")
 
     implementation("org.postgresql:postgresql")
